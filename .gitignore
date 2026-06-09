@@ -1,0 +1,4 @@
+__pycache__/
+.pytest_cache/
+*.pyc
+Selenium TestScripts using python and Pytest/test_checkout.py

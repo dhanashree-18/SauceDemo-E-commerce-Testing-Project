@@ -31,6 +31,6 @@ jobs:
       - name: Run Selenium Tests
         run: |
           cd "Selenium TestScripts using python and Pytest"
-          pytest test_valid_login.py test_cart.py -v
+          pytest -v
         env:
           DISPLAY: :99

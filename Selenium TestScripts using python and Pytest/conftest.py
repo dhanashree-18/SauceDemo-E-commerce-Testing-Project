@@ -5,6 +5,12 @@ from selenium.webdriver.chrome.options import Options
 @pytest.fixture
 def setup():
 	chrome_options = Options()
+	chrome_options.add_experimental_option("prefs", {
+		"credentials_enable_service": False,
+		"profile.password_manager_enabled": False,
+		"profile.password_manager_leak_detection": False
+	})
+
 	chrome_options.add_argument("--headless")
 	chrome_options.add_argument("--no-sandbox")
 	chrome_options.add_argument("--disable-dev-shm-usage")

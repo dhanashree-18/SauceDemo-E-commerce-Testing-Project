@@ -6,6 +6,7 @@ on:
       - main
       - feature/cicd
       - feature/additional-tests
+      - feature/pom 
   pull_request:
     branches:
       - main

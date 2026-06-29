@@ -39,3 +39,4 @@ def test_checkout(setup):
 	finish_btn.click()
 
 	assert "checkout-complete" in driver.current_url
+

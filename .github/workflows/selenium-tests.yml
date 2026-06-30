@@ -6,7 +6,8 @@ on:
       - main
       - feature/cicd
       - feature/additional-tests
-      - feature/pom 
+      - feature/pom
+      - feature/headless-fix
   pull_request:
     branches:
       - main

@@ -1,7 +1,11 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+import pytest
 
+
+@pytest.mark.checkout
+@pytest.mark.smoke
 def test_checkout(setup):
 	driver = setup
 	driver.find_element(By.ID, "user-name").send_keys("standard_user")

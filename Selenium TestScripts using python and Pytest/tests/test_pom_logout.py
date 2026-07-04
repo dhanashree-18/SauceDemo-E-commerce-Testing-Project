@@ -1,10 +1,14 @@
 import sys
 import os
+import pytest
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from pages.login_page import LoginPage
 from pages.product_page import ProductPage
 
+
+@pytest.mark.logout
+@pytest.mark.regression
 def test_pom_logout(setup):
 	driver = setup
 

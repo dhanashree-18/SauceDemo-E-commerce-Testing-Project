@@ -1,10 +1,13 @@
 import sys
 import os
+import pytest
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from pages.login_page import LoginPage
 from pages.product_page import ProductPage
 
+@pytest.mark.cart
+@pytest.mark.smoke
 def test_pom_cart(setup):
 	driver = setup
 

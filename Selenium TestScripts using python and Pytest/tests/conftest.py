@@ -1,7 +1,12 @@
 import pytest
+import sys
+import os
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-import os
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from pages.login_page import LoginPage
+
+
 
 @pytest.fixture
 def setup():
@@ -25,3 +30,10 @@ def setup():
 	driver.implicitly_wait(10)
 	yield driver
 	driver.quit()
+
+@pytest.fixture
+def logged_in_setup(setup):
+	driver = setup
+	login_page = LoginPage(driver)
+	login_page.login("standard_user", "secret_sauce")
+	yield driver

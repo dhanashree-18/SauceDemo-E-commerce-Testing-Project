@@ -9,6 +9,7 @@ on:
       - feature/pom
       - feature/headless-fix
       - feature/markers
+      - feature/fixtures
   pull_request:
     branches:
       - main

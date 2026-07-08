@@ -2,23 +2,13 @@ import sys
 import os
 import pytest
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-
-from pages.login_page import LoginPage
 from pages.product_page import ProductPage
 
 @pytest.mark.cart
 @pytest.mark.smoke
-def test_pom_cart(setup):
-	driver = setup
-
-	login_page = LoginPage(driver)
-
-	login_page.login("standard_user", "secret_sauce")
-
+def test_pom_cart(logged_in_setup):
+	driver = logged_in_setup
 	product_page = ProductPage(driver)
-
 	product_page.add_to_cart()
-
 	cart_count = product_page.get_cart_badge()
-
 	assert cart_count == "1"

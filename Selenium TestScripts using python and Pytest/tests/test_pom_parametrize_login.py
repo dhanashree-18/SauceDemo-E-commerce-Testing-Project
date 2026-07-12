@@ -7,8 +7,6 @@ from pages.login_page import LoginPage
 
 @pytest.mark.login
 @pytest.mark.regression
-@pytest.mark.login
-@pytest.mark.regression
 @pytest.mark.parametrize("username, password, expected_msg",[
 	("standard_user", "wrong_password", "Epic sadface: Username and password do not match any user in this service"),
 	("locked_out_user", "secret_sauce", "Epic sadface: Sorry, this user has been locked out."),

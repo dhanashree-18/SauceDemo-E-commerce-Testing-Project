@@ -10,6 +10,7 @@ on:
       - feature/headless-fix
       - feature/markers
       - feature/fixtures
+      - feature/parametrize-fixture
   pull_request:
     branches:
       - main

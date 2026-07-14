@@ -11,6 +11,7 @@ on:
       - feature/markers
       - feature/fixtures
       - feature/parametrize-fixture
+      - feature/data-driven-testing
   pull_request:
     branches:
       - main

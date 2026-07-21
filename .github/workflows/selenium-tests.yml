@@ -12,9 +12,12 @@ on:
       - feature/fixtures
       - feature/parametrize-fixture
       - feature/data-driven-testing
+      - feature/scheduled-runs
   pull_request:
     branches:
       - main
+  schedule:
+    - cron: '0 2 * * 1'
 
 jobs:
   test:
@@ -38,6 +41,7 @@ jobs:
       - name: Run Selenium Tests
         run: |
           cd "Selenium TestScripts using python and Pytest"
-          pytest -v
+          DATE=$(date +'%Y-%m-%d')
+          pytest -v --html=reports/report_$DATE.html
         env:
           DISPLAY: :99

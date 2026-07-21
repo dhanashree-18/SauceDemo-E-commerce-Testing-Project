@@ -12,6 +12,7 @@ on:
       - feature/fixtures
       - feature/parametrize-fixture
       - feature/data-driven-testing
+      - feature/scheduled-runs
   pull_request:
     branches:
       - main

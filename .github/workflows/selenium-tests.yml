@@ -45,3 +45,10 @@ jobs:
           pytest -v --html=reports/report_$DATE.html
         env:
           DISPLAY: :99
+
+      - name: Upload HTML report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-report-${{ github.run_id }}
+          path: Selenium TestScripts using python and Pytest/reports/

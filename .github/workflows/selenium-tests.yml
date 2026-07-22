@@ -13,6 +13,7 @@ on:
       - feature/parametrize-fixture
       - feature/data-driven-testing
       - feature/scheduled-runs
+      - feature/allure-reports
   pull_request:
     branches:
       - main
@@ -42,7 +43,7 @@ jobs:
         run: |
           cd "Selenium TestScripts using python and Pytest"
           DATE=$(date +'%Y-%m-%d')
-          pytest -v --html=reports/report_$DATE.html
+          pytest -v --html=reports/report_$DATE.html --alluredir=reports/allure-results
         env:
           DISPLAY: :99
 
@@ -52,3 +53,18 @@ jobs:
         with:
           name: test-report-${{ github.run_id }}
           path: Selenium TestScripts using python and Pytest/reports/
+
+      - name: Install Allure CLI
+        run: npm install -g allure-commandline
+
+      - name: Generate Allure Report
+        if: always()
+        run: |
+          allure generate "Selenium TestScripts using python and Pytest/reports/allure-results" -o allure-report --clean
+
+      - name: Upload Allure Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-report-${{ github.run_id }}
+          path: allure-report/

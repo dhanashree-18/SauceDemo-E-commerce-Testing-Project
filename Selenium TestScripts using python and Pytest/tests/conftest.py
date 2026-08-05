@@ -39,7 +39,8 @@ def setup(request):
 			edge_options.add_argument("--window-size=1920,1080")
 		driver = webdriver.Edge(options=edge_options)
 
-	driver.maximize_window()
+	if not os.environ.get("CI"):
+		driver.maximize_window()
 	driver.get("https://www.saucedemo.com/")
 	driver.implicitly_wait(10)
 	yield driver

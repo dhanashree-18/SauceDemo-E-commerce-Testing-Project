@@ -33,7 +33,7 @@ def setup(request):
 			"profile.password_manager_leak_detection": False
 		})
 		if os.environ.get("CI"):
-			edge_options.add_argument("--headless")
+			edge_options.add_argument("--headless=new")
 			edge_options.add_argument("--no-sandbox")
 			edge_options.add_argument("--disable-dev-shm-usage")
 			edge_options.add_argument("--window-size=1920,1080")

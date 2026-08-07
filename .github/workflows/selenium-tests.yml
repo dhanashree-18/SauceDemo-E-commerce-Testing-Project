@@ -14,6 +14,7 @@ on:
       - feature/data-driven-testing
       - feature/scheduled-runs
       - feature/allure-reports
+      - feature/cross-browser-testing
   pull_request:
     branches:
       - main
@@ -39,6 +40,12 @@ jobs:
       - name: Set up Chrome
         uses: browser-actions/setup-chrome@v1
 
+      - name: Set up Edge
+        uses: browser-actions/setup-edge@v1
+
+      - name: Install Allure CLI
+        run: npm install -g allure-commandline
+
       - name: Run Selenium Tests
         run: |
           cd "Selenium TestScripts using python and Pytest"
@@ -53,9 +60,6 @@ jobs:
         with:
           name: test-report-${{ github.run_id }}
           path: Selenium TestScripts using python and Pytest/reports/
-
-      - name: Install Allure CLI
-        run: npm install -g allure-commandline
 
       - name: Generate Allure Report
         if: always()
